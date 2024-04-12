@@ -1,0 +1,50 @@
+<html>
+  <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+    <body>
+      <div class="jumbotron">
+        <h1>Mood based Food Recommender 🍕 🍔 🍟</h1>
+      </div>
+      <div class="container text-center">
+        <p style="margin-bottom: 20px; font-size: 24px">As you are in {{ mood }} mood, we suggest you following food from following restaurants, give it a try:</p>
+		<div>
+		  {% for restaurant in restaurants1 %}
+          <div class="card" style="padding-top: 15px; padding-bottom: 15px; padding-left:15px; padding-right:15px">
+            <h3>{{ restaurant["Restaurant Name"] }}</h3>
+            <p style="font-size: 20px; color: green">{{ restaurant["Cuisines"] }}</p>
+            <p style="font-size: 18px; color: purple; margin-top: -15px"> Avg. Cost for 2 : {{ restaurant["Average Cost for two"] }}</p>
+            <p>⭐️ {{ restaurant["Aggregate rating"] }} Rating</p>
+            <p>{{ restaurant["Address"] }}</p>
+          </div>
+		  <br><br>
+          {% endfor %}
+		</div>
+		<br><br>
+		<p style="margin-bottom: 20px; font-size: 20px">In {{ mood }} mood, here are some other suggestions, you can try:</p>
+		<br>
+        <div class="card-deck" style="margin-bottom: 20px">
+          {% for restaurant in restaurants2 %}
+          <div class="card" style="padding-top: 15px; padding-bottom: 15px;">
+            <h5>{{ restaurant["Restaurant Name"] }}</h5>
+            <p style="font-size: 18px; color: green">{{ restaurant["Cuisines"] }}</p>
+            <p style="font-size: 18px; color: purple; margin-top: -15px"> Avg. Cost for 2 : {{ restaurant["Average Cost for two"] }}</p>
+            <p>⭐️ {{ restaurant["Aggregate rating"] }} Rating</p>
+            <p>{{ restaurant["Address"] }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="card-deck" style="margin-bottom: 20px">
+          {% for restaurant in restaurants3 %}
+          <div class="card" style="padding-top: 15px; padding-bottom: 15px;">
+            <h5>{{ restaurant["Restaurant Name"] }}</h5>
+            <p style="font-size: 18px; color: green">{{ restaurant["Cuisines"] }}</p>
+            <p style="font-size: 18px; color: purple; margin-top: -15px"> Avg. Cost for 2 : {{ restaurant["Average Cost for two"] }}</p>
+            <p>⭐️ {{ restaurant["Aggregate rating"] }} Rating</p>
+            <p>{{ restaurant["Address"] }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </body>
+</html>
